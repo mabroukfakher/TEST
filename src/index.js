@@ -31,15 +31,11 @@ app.use("/api", router);
 
 app.use(logger.sendResponse);
 
-//This route will be used as an endpoint to interact with Graphql,
-//All queries will go through this route.
 app.use(
   "/graphql",
   graphqlHTTP({
-    //Directing express-graphql to use this schema to map out the graph
     schema,
-    //Directing express-graphql to use graphiql when goto '/graphql' address in the browser
-    //which provides an interface to make GraphQl queries
+
     graphiql: true,
   })
 );
